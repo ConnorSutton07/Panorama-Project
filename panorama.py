@@ -2,6 +2,7 @@
 
 import pandas as pd
 import numpy as np
+from scipy.stats import chi2
 
 def Mahalanobis(x: np.array, data: np.array, cov: np.array = None) -> float:
     """
@@ -42,7 +43,8 @@ def GetSpecies(lat: float, lon: float, kya: str, clouds: dict, bios: list, names
     
     """
     try:
-        species = []
+        primary_species = []
+        secondary_species = []
         df = clouds[kya]
 
         loc_data = np.array(list(zip(df['Longitude'].to_numpy(), df['Latitude'].to_numpy())))
@@ -57,9 +59,11 @@ def GetSpecies(lat: float, lon: float, kya: str, clouds: dict, bios: list, names
         for i in range(len(bios)):
             data = np.array(bios[i])
             mahal = Mahalanobis(climate_point, data)
-            if mahal < 9.2:
-                species.append(names[i])
-        return species
+            if mahal < chi2.ppf((1 - 0.05), df = 2):
+                primary_species.append(names[i])
+            elif mahal < chi2.ppf((1 - 0.01), df = 2):
+                secondary_species.append(names[i])
+        return primary_species, secondary_species
     except:
         print("Invalid Input")
         pass
@@ -116,11 +120,21 @@ def main(species_data_file: str = 'ValsCoordsPanoramaAlternas3.csv',
     locs  = tmp_locs
     names = tmp_names
 
-    lat = int(input("Latitude: "))
-    lon = int(input("Longitude: "))
+    lat = float(input("Latitude: "))
+    lon = float(input("Longitude: "))
     kya = input("Kya: ")
 
-    print(GetSpecies(lat, lon, kya, clouds, bios, names))
+    primary_species, secondary_species = GetSpecies(lat, lon, kya, clouds, bios, names)
+    print("+--------------------------+")
+    print("|     Primary Species      |")
+    print("+--------------------------+\n")
+    print(primary_species)
+    print('\n\n')
+    print("+--------------------------+")
+    print("|    Secondary Species     |")
+    print("+--------------------------+\n")
+    print(secondary_species)
+
 
 if __name__ == "__main__":
     main()
