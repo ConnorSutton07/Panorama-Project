@@ -1,7 +1,7 @@
 # Connor Sutton | 6/18/21 | panorama.py
 
-import pandas as pd
-import numpy as np
+import pandas as pd # pandas is for reading csv files
+import numpy as np  # numpy is an essential scientific programming library
 from scipy.stats import chi2
 
 def Mahalanobis(x: np.array, data: np.array, cov: np.array = None) -> float:
@@ -68,7 +68,7 @@ def GetSpecies(lat: float, lon: float, kya: str, clouds: dict, bios: list, names
         print("Invalid Input")
         pass
 
-def main(species_data_file: str = 'ValsCoordsPanoramaAlternas3.csv',
+def main(species_data_file: str = 'ValsCoordsPanoramaAlternas3.csv', 
          times_data_folder: str =  'HexagonsCoordsVars/') -> None:
 
     d = pd.read_csv(species_data_file)
@@ -83,7 +83,8 @@ def main(species_data_file: str = 'ValsCoordsPanoramaAlternas3.csv',
         except:
             pass
 
-    s = d['Species'].to_numpy()
+    # move data to arrays that can be operated upon
+    s = d['Species'].to_numpy()      
     bio10 = d['bio_10'].to_numpy()
     bio11 = d['bio_11'].to_numpy()
     bio12 = d['bio_12'].to_numpy()
@@ -124,7 +125,7 @@ def main(species_data_file: str = 'ValsCoordsPanoramaAlternas3.csv',
     lon = float(input("Longitude: "))
     kya = input("Kya: ")
 
-    primary_species, secondary_species = GetSpecies(lat, lon, kya, clouds, bios, names)
+    primary_species, secondary_species = GetSpecies(lat, lon, kya, clouds, bios, names) 
     print("+--------------------------+")
     print("|     Primary Species      |")
     print("+--------------------------+\n")
@@ -136,5 +137,5 @@ def main(species_data_file: str = 'ValsCoordsPanoramaAlternas3.csv',
     print(secondary_species)
 
 
-if __name__ == "__main__":
+if __name__ == "__main__": # starting point, immediately calls main
     main()
