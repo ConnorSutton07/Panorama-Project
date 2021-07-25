@@ -1,24 +1,30 @@
 using System;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class TerrainGeneration : MonoBehaviour
 {
-    void Start()
+    public Tilemap map;
+    public Tile[] tiles = new Tile[2];
+    
+    
+    void Start() 
     {
-        Debug.Log("EEEE");
-        int bottom_right = ((int)Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0)).x) - 1;
-        int bottom_left =  ((int)Camera.main.ScreenToWorldPoint(Vector3.zero).x) - 1;
-        
-        for (int i = bottom_left; i < bottom_right; i++)
+        //map.SetTile(new Vector3Int(i, j, 0), tile);
+        map = gameObject.GetComponent<Tilemap>();
+        //for 
+        for (int i = Constants.LEFT_EDGE; i <= Constants.RIGHT_EDGE; i+=3)
         {
-            Debug.Log(i);
+            map.SetTile(new Vector3Int(i, -4, 0), tiles[0]);
+            map.SetTile(new Vector3Int(i, -5, 0), tiles[1]);
+            //map.SetTile(new Vector3Int(i, -5, 0), tiles[1]);
         }
-        //Camera.main.transform.position = new Vector3(LENGTH / 2, LENGTH / 2, -LENGTH);
+        
     }
+
     
     void Update ()
     {
         
     }
-
 }
