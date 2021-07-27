@@ -5034,7 +5034,7 @@ GameObject:
   - component: {fileID: 846126172}
   - component: {fileID: 846126171}
   m_Layer: 0
-  m_Name: Constants
+  m_Name: Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5052,6 +5052,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5eb93504bad3ed4ca3804f4b0493f5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Pointer: {fileID: 2800000, guid: e4a4fe0e43aeb5a4b98ea811e10fd1a4, type: 3}
+  Arrow: {fileID: 2800000, guid: 3bcf62a668df3034a89f2bd48ceed9be, type: 3}
 --- !u!4 &846126172
 Transform:
   m_ObjectHideFlags: 0
