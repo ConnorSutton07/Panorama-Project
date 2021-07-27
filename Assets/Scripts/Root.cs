@@ -20,6 +20,7 @@ public class Root : MonoBehaviour
     //------------
     public static int LEFT_EDGE = -30;
     public static int RIGHT_EDGE = 30;
+    public static int PRECIPITATION_OFFSET = 8;
 
     private void Start()
     {
