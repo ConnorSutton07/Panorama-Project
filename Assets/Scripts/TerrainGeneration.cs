@@ -12,8 +12,8 @@ public class TerrainGeneration : MonoBehaviour
         map = gameObject.GetComponent<Tilemap>();
         for (int i = Root.LEFT_EDGE; i <= Root.RIGHT_EDGE; i += 3)
         {
-            map.SetTile(new Vector3Int(i, -4, 0), tiles[0]);
-            map.SetTile(new Vector3Int(i, -5, 0), tiles[1]);
+            map.SetTile(new Vector3Int(i, -5, 0), tiles[0]);
+            //map.SetTile(new Vector3Int(i, -5, 0), tiles[1]);
         }
     }
 }

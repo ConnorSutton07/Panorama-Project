@@ -1,34 +1,25 @@
 fileFormatVersion: 2
-guid: 5991f3d0bbb81be4fa499d0358767bef
+guid: 4d9bf2727bae37d4bb804bfcd51f2fb1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3646484705930796091
-    second: PolarBearSS_0
+      213: -6232223399631691481
+    second: PolarBearBlinkSS_0
   - first:
-      213: 2521310302837698044
-    second: PolarBearSS_1
+      213: -2749319615249851260
+    second: PolarBearBlinkSS_1
   - first:
-      213: -4112756709907973133
-    second: PolarBearSS_2
+      213: 1730390721817643623
+    second: PolarBearBlinkSS_2
   - first:
-      213: 8986391245370212320
-    second: PolarBearSS_3
+      213: -4075376042634888543
+    second: PolarBearBlinkSS_3
   - first:
-      213: 6474641586568703483
-    second: PolarBearSS_4
+      213: -2884595685208117618
+    second: PolarBearBlinkSS_4
   - first:
-      213: 6781039435461137462
-    second: PolarBearSS_5
-  - first:
-      213: -714968470406474742
-    second: PolarBearSS_6
-  - first:
-      213: -4607084292183497556
-    second: PolarBearSS_7
-  - first:
-      213: -1074241421618545810
-    second: PolarBearSS_8
+      213: -6291762452343559344
+    second: PolarBearBlinkSS_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -75,7 +66,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 128
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 0
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -142,7 +133,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PolarBearSS_0
+      name: PolarBearBlinkSS_0
       rect:
         serializedVersion: 2
         x: 0
@@ -156,14 +147,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5c3a918da75156dc0800000000000000
-      internalID: -3646484705930796091
+      spriteID: 721631876d1b289a0800000000000000
+      internalID: -6232223399631691481
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PolarBearSS_1
+      name: PolarBearBlinkSS_1
       rect:
         serializedVersion: 2
         x: 512
@@ -177,14 +168,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cfd6c29ac5e7df220800000000000000
-      internalID: 2521310302837698044
+      spriteID: 48cd40f506478d9d0800000000000000
+      internalID: -2749319615249851260
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PolarBearSS_2
+      name: PolarBearBlinkSS_2
       rect:
         serializedVersion: 2
         x: 1024
@@ -198,14 +189,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3fbb45a009d8ce6c0800000000000000
-      internalID: -4112756709907973133
+      spriteID: 76a82988135930810800000000000000
+      internalID: 1730390721817643623
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PolarBearSS_3
+      name: PolarBearBlinkSS_3
       rect:
         serializedVersion: 2
         x: 1536
@@ -219,14 +210,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0efb8f8c93316bc70800000000000000
-      internalID: 8986391245370212320
+      spriteID: 1aa3c9cd41b5177c0800000000000000
+      internalID: -4075376042634888543
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PolarBearSS_4
+      name: PolarBearBlinkSS_4
       rect:
         serializedVersion: 2
         x: 2048
@@ -240,14 +231,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bfd2667083c8ad950800000000000000
-      internalID: 6474641586568703483
+      spriteID: e8eab8ee18bd7f7d0800000000000000
+      internalID: -2884595685208117618
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PolarBearSS_5
+      name: PolarBearBlinkSS_5
       rect:
         serializedVersion: 2
         x: 2560
@@ -261,71 +252,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 634939660771b1e50800000000000000
-      internalID: 6781039435461137462
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PolarBearSS_6
-      rect:
-        serializedVersion: 2
-        x: 3072
-        y: 0
-        width: 512
-        height: 512
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a0451d7d6fbe316f0800000000000000
-      internalID: -714968470406474742
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PolarBearSS_7
-      rect:
-        serializedVersion: 2
-        x: 3584
-        y: 0
-        width: 512
-        height: 512
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ca4ee12ee395010c0800000000000000
-      internalID: -4607084292183497556
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PolarBearSS_8
-      rect:
-        serializedVersion: 2
-        x: 4096
-        y: 0
-        width: 512
-        height: 512
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e6b7a6d5e178711f0800000000000000
-      internalID: -1074241421618545810
+      spriteID: 05bebe0826b2fa8a0800000000000000
+      internalID: -6291762452343559344
       vertices: []
       indices: 
       edges: []
