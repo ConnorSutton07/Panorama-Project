@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8664999047346410867}
   - component: {fileID: 8664999047346410866}
+  - component: {fileID: 555816908064129075}
   m_Layer: 0
   m_Name: ArcticBackground
   m_TagString: Untagged
@@ -82,3 +83,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &555816908064129075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8664999047346410865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23a354a219086e44b8f4b22e41bb11b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  parallax: 0.5

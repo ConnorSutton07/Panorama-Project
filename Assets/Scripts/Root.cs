@@ -45,13 +45,11 @@ public class Root : MonoBehaviour
 
     public void SetPointer()
     {
-        Debug.Log("Pointer");
         Cursor.SetCursor(Pointer, PointerOffset, CursorMode.Auto);
     }
 
     public void SetArrow()
     {
-        Debug.Log("Arrow");
         Cursor.SetCursor(Arrow, ArrowOffset, CursorMode.Auto);
     }
 }
