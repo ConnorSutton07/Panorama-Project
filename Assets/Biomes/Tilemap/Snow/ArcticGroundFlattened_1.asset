@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: SnowBlock
+  m_Name: ArcticGroundFlattened_1
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 3416102733142544480, guid: 277c2dde23576ae4b90eac66842f559a, type: 3}
+  m_Sprite: {fileID: -6726713396227820880, guid: e0308bedf61ee0a47be06357020197fb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1

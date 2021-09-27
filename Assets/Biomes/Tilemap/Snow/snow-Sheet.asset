@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: SnowWithWaterBlock
+  m_Name: snow-Sheet
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: -3668143795254621628, guid: 277c2dde23576ae4b90eac66842f559a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 37ae9abddd745364c9cf73894a6149b3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
