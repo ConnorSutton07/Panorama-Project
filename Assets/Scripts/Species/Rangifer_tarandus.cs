@@ -4,34 +4,23 @@ using UnityEngine;
 
 public class Rangifer_tarandus : MonoBehaviour
 {
-    private AnimationClip[] clips;
     private Animator animator;
+    private string currentState;
+    float idle_length;
+
     private void Awake()
     {
-        // Get the animator component
         animator = GetComponent<Animator>();
-
-        // Get all available clips
-        clips = animator.runtimeAnimatorController.animationClips;
+        idle_length = animator.GetCurrentAnimatorClipInfo(0)[0].clip.length;
     }
 
-    private void Start()
-    {
-        PlayRandomly();
-    }
-
-    private IEnumerator PlayRandomly()
+/*    IEnumerator Start()
     {
         while (true)
         {
-            int i = Random.Range(0, clips.Length);
-            var randClip = clips[i];
-
-            animator.Play(randClip.name);
-            Debug.Log(i);
-
-            // Wait until animation finished than pick the next one
-            yield return new WaitForSeconds(randClip.length);
+            yield return new WaitForSeconds(Random.Range(idle_length * 2, idle_length * 5));
+            animator.SetInteger("ActionIndex", Random.Range(0, 2));
+            animator.SetBool("ActionTrigger", true);
         }
-    }
+    }*/
 }

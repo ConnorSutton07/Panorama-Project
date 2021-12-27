@@ -7,6 +7,9 @@ public class TerrainGeneration : MonoBehaviour
     public Tilemap map;
     public Tile[] tiles = new Tile[3];
     public GameObject[] backgroundLayers;
+    public float backgroundHeight;
+    public int floorHeight;
+    public float backgroundScale = 1.0f;
 
     void Start()
     {
@@ -14,15 +17,21 @@ public class TerrainGeneration : MonoBehaviour
         int length = Root.RIGHT_EDGE - Root.LEFT_EDGE;
 
         for (int i = Root.LEFT_EDGE; i <= Root.RIGHT_EDGE - (length / 4); i += 3)
-            map.SetTile(new Vector3Int(i, -5, 0), tiles[0]); // snow
+        {
+            int tileIndex = i % 3;
+            map.SetTile(new Vector3Int(i, floorHeight, 0), tiles[tileIndex]); // snow
+        }
         map.SetTile(new Vector3Int(Root.RIGHT_EDGE - (length / 4) + 2, -5, 0), tiles[1]); // transition
         for (int i = Root.RIGHT_EDGE - (length / 4) + 3; i <= Root.RIGHT_EDGE + 3; i += 1)
             map.SetTile(new Vector3Int(i, -5, -1), tiles[2]); // water
 
-        for (int i = Root.LEFT_EDGE; i <= Root.RIGHT_EDGE + 16; i += 16)
+        for (float i = Root.LEFT_EDGE; i <= Root.RIGHT_EDGE + 16; i += (16 * backgroundScale))
         {
             for (int j = 0; j < backgroundLayers.Length; j++)
-                Instantiate(backgroundLayers[j], new Vector3(i, -3.2f, -j + 5), Quaternion.identity);
+            {
+                GameObject bgLayer = Instantiate(backgroundLayers[j], new Vector3(i, backgroundHeight, -j + 5), Quaternion.identity);
+                bgLayer.transform.localScale = new Vector3(backgroundScale, backgroundScale, 1f);
+            }
         }
     }
 }

@@ -35,6 +35,45 @@ TextureImporter:
   - first:
       213: 907081565391157141
     second: Sprite-reindeer_10
+  - first:
+      213: -6782321275273407391
+    second: Sprite-reindeer_11
+  - first:
+      213: 967449846156081501
+    second: Sprite-reindeer_12
+  - first:
+      213: -981049451518049999
+    second: Sprite-reindeer_13
+  - first:
+      213: -6051155384154912329
+    second: Sprite-reindeer_14
+  - first:
+      213: 5345819902852968975
+    second: Sprite-reindeer_15
+  - first:
+      213: 7426010614421763624
+    second: Sprite-reindeer_16
+  - first:
+      213: 497834187387632997
+    second: Sprite-reindeer_17
+  - first:
+      213: -2441954001846357432
+    second: Sprite-reindeer_18
+  - first:
+      213: 5401601095090390536
+    second: Sprite-reindeer_19
+  - first:
+      213: 7385242570302848115
+    second: Sprite-reindeer_20
+  - first:
+      213: -1467099516553162200
+    second: Sprite-reindeer_21
+  - first:
+      213: -6142562838996895458
+    second: Sprite-reindeer_22
+  - first:
+      213: 3223696951562214433
+    second: Sprite-reindeer_23
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -235,8 +274,8 @@ TextureImporter:
       name: Sprite-reindeer_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 180
+        x: 840
+        y: 360
         width: 210
         height: 180
       alignment: 0
@@ -256,8 +295,8 @@ TextureImporter:
       name: Sprite-reindeer_5
       rect:
         serializedVersion: 2
-        x: 210
-        y: 180
+        x: 1050
+        y: 360
         width: 210
         height: 180
       alignment: 0
@@ -277,8 +316,8 @@ TextureImporter:
       name: Sprite-reindeer_6
       rect:
         serializedVersion: 2
-        x: 420
-        y: 180
+        x: 1260
+        y: 360
         width: 210
         height: 180
       alignment: 0
@@ -298,8 +337,8 @@ TextureImporter:
       name: Sprite-reindeer_7
       rect:
         serializedVersion: 2
-        x: 630
-        y: 180
+        x: 1470
+        y: 360
         width: 210
         height: 180
       alignment: 0
@@ -320,7 +359,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 180
         width: 210
         height: 180
       alignment: 0
@@ -341,7 +380,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 210
-        y: 0
+        y: 180
         width: 210
         height: 180
       alignment: 0
@@ -362,7 +401,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 420
-        y: 0
+        y: 180
         width: 210
         height: 180
       alignment: 0
@@ -374,6 +413,279 @@ TextureImporter:
       bones: []
       spriteID: 597f177b0e9969c00800000000000000
       internalID: 907081565391157141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite-reindeer_11
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 180
+        width: 210
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16411c20cba50e1a0800000000000000
+      internalID: -6782321275273407391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite-reindeer_12
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 180
+        width: 210
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d59b32262821d6d00800000000000000
+      internalID: 967449846156081501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite-reindeer_13
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 180
+        width: 210
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 131cc2fb8bc9262f0800000000000000
+      internalID: -981049451518049999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite-reindeer_14
+      rect:
+        serializedVersion: 2
+        x: 1260
+        y: 180
+        width: 210
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b901ce0d3af50ca0800000000000000
+      internalID: -6051155384154912329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite-reindeer_15
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 180
+        width: 210
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f02b3c6d0ea203a40800000000000000
+      internalID: 5345819902852968975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite-reindeer_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 210
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 826b3e22f4d7e0760800000000000000
+      internalID: 7426010614421763624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite-reindeer_17
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 0
+        width: 210
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56df8484e89a8e600800000000000000
+      internalID: 497834187387632997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite-reindeer_18
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 0
+        width: 210
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 842ba1af5cf6c1ed0800000000000000
+      internalID: -2441954001846357432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite-reindeer_19
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 0
+        width: 210
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 806493bb39756fa40800000000000000
+      internalID: 5401601095090390536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite-reindeer_20
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 0
+        width: 210
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37c7efe2df6ad7660800000000000000
+      internalID: 7385242570302848115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite-reindeer_21
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 0
+        width: 210
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82293b143c0d3abe0800000000000000
+      internalID: -1467099516553162200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite-reindeer_22
+      rect:
+        serializedVersion: 2
+        x: 1260
+        y: 0
+        width: 210
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e19331384ab31caa0800000000000000
+      internalID: -6142562838996895458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite-reindeer_23
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 0
+        width: 210
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12c106d2c4fdcbc20800000000000000
+      internalID: 3223696951562214433
       vertices: []
       indices: 
       edges: []
