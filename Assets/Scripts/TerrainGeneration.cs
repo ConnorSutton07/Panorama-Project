@@ -7,9 +7,11 @@ public class TerrainGeneration : MonoBehaviour
     public Tilemap map;
     public Tile[] tiles = new Tile[3];
     public GameObject[] backgroundLayers;
+    public Texture2D sky;
     public float backgroundHeight;
     public int floorHeight;
     public float backgroundScale = 1.0f;
+    public bool generateBackground;
 
     void Start()
     {
@@ -25,12 +27,15 @@ public class TerrainGeneration : MonoBehaviour
         for (int i = Root.RIGHT_EDGE - (length / 4) + 3; i <= Root.RIGHT_EDGE + 3; i += 1)
             map.SetTile(new Vector3Int(i, -5, -1), tiles[2]); // water
 
-        for (float i = Root.LEFT_EDGE; i <= Root.RIGHT_EDGE + 16; i += (16 * backgroundScale))
+        if (generateBackground)
         {
-            for (int j = 0; j < backgroundLayers.Length; j++)
+            for (float i = Root.LEFT_EDGE; i <= Root.RIGHT_EDGE + 16; i += (16 * backgroundScale))
             {
-                GameObject bgLayer = Instantiate(backgroundLayers[j], new Vector3(i, backgroundHeight, -j + 5), Quaternion.identity);
-                bgLayer.transform.localScale = new Vector3(backgroundScale, backgroundScale, 1f);
+                for (int j = 0; j < backgroundLayers.Length; j++)
+                {
+                    GameObject bgLayer = Instantiate(backgroundLayers[j], new Vector3(i, backgroundHeight, -j + 5), Quaternion.identity);
+                    bgLayer.transform.localScale = new Vector3(backgroundScale, backgroundScale, 1f);
+                }
             }
         }
     }
