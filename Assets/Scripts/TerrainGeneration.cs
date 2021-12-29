@@ -23,9 +23,9 @@ public class TerrainGeneration : MonoBehaviour
             int tileIndex = i % 3;
             map.SetTile(new Vector3Int(i, floorHeight, 0), tiles[tileIndex]); // snow
         }
-        map.SetTile(new Vector3Int(Root.RIGHT_EDGE - (length / 4) + 2, -5, 0), tiles[1]); // transition
-        for (int i = Root.RIGHT_EDGE - (length / 4) + 3; i <= Root.RIGHT_EDGE + 3; i += 1)
-            map.SetTile(new Vector3Int(i, -5, -1), tiles[2]); // water
+        map.SetTile(new Vector3Int(Root.RIGHT_EDGE - (length / 4) + 2, floorHeight, 0), tiles[3]); // transition
+        for (int i = Root.RIGHT_EDGE - (length / 4) + 5; i <= Root.RIGHT_EDGE + 3; i += 3)
+            map.SetTile(new Vector3Int(i, floorHeight, -1), tiles[4]); // water
 
         if (generateBackground)
         {

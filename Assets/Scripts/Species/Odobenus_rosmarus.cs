@@ -7,6 +7,8 @@ public class Odobenus_rosmarus : MonoBehaviour
     float yPos;
     float yCurrent;
     float t;
+    public float speed;
+    public float amplitude;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +19,7 @@ public class Odobenus_rosmarus : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector2(transform.position.x, yPos + (0.1f * Mathf.Sin(t)));
-        t += 0.02f;
+        transform.position = new Vector2(transform.position.x, yPos + (amplitude * Mathf.Sin(t)));
+        t += speed;
     }
 }

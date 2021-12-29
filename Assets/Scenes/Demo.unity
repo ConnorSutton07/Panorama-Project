@@ -5288,14 +5288,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 618550827093ac7448d2cc6259387b6b, type: 2}
   - {fileID: 11400000, guid: 834d8df03c8871447b4b866df314ee03, type: 2}
   - {fileID: 11400000, guid: 771896a4c24f2dd41a6d8ffb8a4e2ed2, type: 2}
-  - {fileID: 11400000, guid: a758143bc6a4f9644b5ff8bf292903cf, type: 2}
-  - {fileID: 11400000, guid: 545f82e79dbb6b746972366b9083793b, type: 2}
+  - {fileID: 11400000, guid: 22df5cfdababb0645b758342a0bd350a, type: 2}
+  - {fileID: 11400000, guid: f992d0c58f322da45b58ec58da16e223, type: 2}
   backgroundLayers:
   - {fileID: 3643478715719554751, guid: 29bf31a51358ea7458cfa109172e5376, type: 3}
   - {fileID: 6944714330198865923, guid: 1f1001fb3d1893d488481b07a081586b, type: 3}
   - {fileID: 8630652766095153051, guid: a68be07809254394e82236bdcbed272d, type: 3}
   sky: {fileID: 2800000, guid: 70e32caafad415e489dea7aa867977e0, type: 3}
-  backgroundHeight: -0.5
+  backgroundHeight: 1
   floorHeight: -4
   backgroundScale: 1.5
   generateBackground: 1
@@ -5448,7 +5448,7 @@ RectTransform:
   m_GameObject: {fileID: 1622440919}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: -1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1899068225}
   m_RootOrder: 0
@@ -5478,7 +5478,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 70e32caafad415e489dea7aa867977e0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a5d9057d50716c64f8787aea0e0daf9e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5745,7 +5745,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 20769962301449568, guid: 60a4d1905f857ea4db465f3356c0d706, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.7428906
+      value: 2.54
       objectReference: {fileID: 0}
     - target: {fileID: 20769962301449568, guid: 60a4d1905f857ea4db465f3356c0d706, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5778,6 +5778,14 @@ PrefabInstance:
     - target: {fileID: 20769962301449568, guid: 60a4d1905f857ea4db465f3356c0d706, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20769962301449569, guid: 60a4d1905f857ea4db465f3356c0d706, type: 3}
+      propertyPath: speed
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 20769962301449569, guid: 60a4d1905f857ea4db465f3356c0d706, type: 3}
+      propertyPath: amplitude
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 20769962301449574, guid: 60a4d1905f857ea4db465f3356c0d706, type: 3}
       propertyPath: m_Name
