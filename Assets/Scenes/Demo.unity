@@ -5213,7 +5213,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1330530639
 Transform:
   m_ObjectHideFlags: 0
@@ -5283,13 +5283,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f25129330fd82424f81eb046c0ea3d03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  map: {fileID: 0}
-  tiles:
+  floorTiles:
   - {fileID: 11400000, guid: 618550827093ac7448d2cc6259387b6b, type: 2}
   - {fileID: 11400000, guid: 834d8df03c8871447b4b866df314ee03, type: 2}
   - {fileID: 11400000, guid: 771896a4c24f2dd41a6d8ffb8a4e2ed2, type: 2}
+  transitionTiles:
+  - {fileID: 11400000, guid: bf8657fac9d79ac439d41dfddddde1c0, type: 2}
   - {fileID: 11400000, guid: 22df5cfdababb0645b758342a0bd350a, type: 2}
-  - {fileID: 11400000, guid: f992d0c58f322da45b58ec58da16e223, type: 2}
+  waterTile: {fileID: 11400000, guid: f992d0c58f322da45b58ec58da16e223, type: 2}
   backgroundLayers:
   - {fileID: 3643478715719554751, guid: 29bf31a51358ea7458cfa109172e5376, type: 3}
   - {fileID: 6944714330198865923, guid: 1f1001fb3d1893d488481b07a081586b, type: 3}
@@ -5299,6 +5300,12 @@ MonoBehaviour:
   floorHeight: -4
   backgroundScale: 1.5
   generateBackground: 1
+  minLand: 1
+  maxLand: 6
+  padding: 2
+  leftEnd: -60
+  rightEnd: 60
+  tileWidth: 3
 --- !u!483693784 &1458991971
 TilemapRenderer:
   m_ObjectHideFlags: 0
