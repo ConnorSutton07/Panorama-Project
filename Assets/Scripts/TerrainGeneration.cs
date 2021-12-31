@@ -18,10 +18,9 @@ public class TerrainGeneration : MonoBehaviour
     public int minLand;
     public int maxLand;
     public int padding;
-    public int leftEnd;
-    public int rightEnd;
     public int tileWidth;
 
+    #region LandInterval
     public class LandInterval
     {
         private int left;
@@ -58,25 +57,24 @@ public class TerrainGeneration : MonoBehaviour
         }
     }
 
-    void Generate()
+    #endregion
+
+    List<LandInterval> GenerateLand()
     {
-        int totalWidth = rightEnd - leftEnd;
+        int totalWidth = Root.RIGHT_EDGE - Root.LEFT_EDGE;
         int numLandSections = Random.Range(minLand, maxLand+ 1);
         List<LandInterval> intervals = new List<LandInterval>();
 
-        Debug.Log("Sections: " + numLandSections);
-        
         for (int i = 0; i < numLandSections; i++)
         {
             int intervalWidth = Random.Range(2, totalWidth / (tileWidth * numLandSections)) * tileWidth;
-            Debug.Log("Width: " + intervalWidth);
             bool overlaps = true;
             int attempts = 0;
             while (overlaps && attempts < 5)
             {
                 overlaps = false;
                 attempts += 1;
-                int intervalStart = Random.Range(leftEnd, rightEnd - intervalWidth);
+                int intervalStart = Random.Range(Root.LEFT_EDGE, Root.RIGHT_EDGE - intervalWidth);
                 LandInterval interval = new LandInterval(intervalStart, intervalStart + intervalWidth);
                 foreach (LandInterval other in intervals)
                 {
@@ -91,29 +89,15 @@ public class TerrainGeneration : MonoBehaviour
                     intervals.Add(interval);
                 }
             }
-        }   
-
-        for (int i = leftEnd; i < rightEnd; i += tileWidth)
-        {
-            bool place = true;
-            foreach (LandInterval interval in intervals)
-            {
-                if (interval.contains(i))
-                {
-                    place = false;
-                    break;
-                }
-            }
-            if (place)
-            {
-                map.SetTile(new Vector3Int(i, floorHeight, 0), waterTile);
-            }
         }
 
+        return intervals;
+    }
+
+    void PlaceLand(List<LandInterval> intervals)
+    {
         foreach (LandInterval interval in intervals)
         {
-            Debug.Log("Here");
-            Debug.Log(interval.Left + " " + interval.Right);
             map.SetTile(new Vector3Int(interval.Left, floorHeight, 0), transitionTiles[0]);
             map.SetTile(new Vector3Int(interval.Right, floorHeight, 0), transitionTiles[1]);
             int j = 1;
@@ -125,35 +109,23 @@ public class TerrainGeneration : MonoBehaviour
         }
     }
 
-    void Start()
+    void GenerateBackground()
     {
-        
-        map = gameObject.GetComponent<Tilemap>();
-        /*
-        int length = Root.RIGHT_EDGE - Root.LEFT_EDGE;
-
-        for (int i = Root.LEFT_EDGE; i <= Root.RIGHT_EDGE - (length / 4); i += 3)
+        for (float i = Root.LEFT_EDGE; i <= Root.RIGHT_EDGE + 16; i += (16 * backgroundScale))
         {
-            int tileIndex = i % 3;
-            map.SetTile(new Vector3Int(i, floorHeight, 0), tiles[tileIndex]); // snow
-        }
-        map.SetTile(new Vector3Int(Root.RIGHT_EDGE - (length / 4) + 2, floorHeight, 0), tiles[3]); // transition
-        for (int i = Root.RIGHT_EDGE - (length / 4) + 5; i <= Root.RIGHT_EDGE + 3; i += 3)
-            map.SetTile(new Vector3Int(i, floorHeight, -1), tiles[4]); // water
-        */
-
-        Generate();
-
-        if (generateBackground)
-        {
-            for (float i = Root.LEFT_EDGE; i <= Root.RIGHT_EDGE + 16; i += (16 * backgroundScale))
+            for (int j = 0; j < backgroundLayers.Length; j++)
             {
-                for (int j = 0; j < backgroundLayers.Length; j++)
-                {
-                    GameObject bgLayer = Instantiate(backgroundLayers[j], new Vector3(i, backgroundHeight, -j + 5), Quaternion.identity);
-                    bgLayer.transform.localScale = new Vector3(backgroundScale, backgroundScale, 1f);
-                }
+                GameObject bgLayer = Instantiate(backgroundLayers[j], new Vector3(i, backgroundHeight, -j + 5), Quaternion.identity);
+                bgLayer.transform.localScale = new Vector3(backgroundScale, backgroundScale, 1f);
             }
         }
+    }
+
+    void Start()
+    {
+        map = gameObject.GetComponent<Tilemap>();
+        List<LandInterval> intervals = GenerateLand();
+        PlaceLand(intervals);
+        if (generateBackground) GenerateBackground();
     }
 }
