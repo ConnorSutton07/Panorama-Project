@@ -158,6 +158,7 @@ ParticleSystemRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
@@ -219,19 +220,19 @@ ParticleSystem:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 117856550}
-  serializedVersion: 7
+  serializedVersion: 8
   lengthInSec: 10
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
+  emitterVelocityMode: 0
   looping: 1
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
-  useRigidbodyForVelocity: 1
   startDelay:
     serializedVersion: 2
     minMaxState: 0
@@ -781,6 +782,7 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0
     maxNumParticles: 3500
+    customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -5208,7 +5210,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1330530639}
   m_Layer: 0
-  m_Name: Animals
+  m_Name: LandSpecies
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5222,16 +5224,46 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1330530638}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.4678317, y: -4.85, z: -5.4822073}
+  m_LocalPosition: {x: -1.4678317, y: -4.85, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2117055236}
   - {fileID: 1855302360}
   - {fileID: 1379129624}
-  - {fileID: 1630818390}
   - {fileID: 53736221}
   m_Father: {fileID: 0}
   m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1366725146
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1366725147}
+  m_Layer: 0
+  m_Name: WaterSpecies
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1366725147
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1366725146}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 57.59139, y: -3.4310772, z: -20.722845}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1630818390}
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1379129624 stripped
 Transform:
@@ -5251,7 +5283,7 @@ GameObject:
   - component: {fileID: 1458991971}
   - component: {fileID: 1458991970}
   m_Layer: 0
-  m_Name: TerrainGeneration
+  m_Name: BiomeGeneration
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5315,6 +5347,7 @@ TilemapRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
@@ -5469,6 +5502,7 @@ TilemapRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
@@ -6131,7 +6165,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1182339004921958389, guid: fea35e635ab4cbf4893444b0e7f59789, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.4822073
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1182339004921958389, guid: fea35e635ab4cbf4893444b0e7f59789, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6173,7 +6207,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1330530639}
+    m_TransformParent: {fileID: 1366725147}
     m_Modifications:
     - target: {fileID: 20769961920882678, guid: 60a4d1905f857ea4db465f3356c0d706, type: 3}
       propertyPath: m_Camera
@@ -6185,19 +6219,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 20769962301449568, guid: 60a4d1905f857ea4db465f3356c0d706, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 20769962301449568, guid: 60a4d1905f857ea4db465f3356c0d706, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 40.19783
+      value: -18.86139
       objectReference: {fileID: 0}
     - target: {fileID: 20769962301449568, guid: 60a4d1905f857ea4db465f3356c0d706, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.54
+      value: 1.1210773
       objectReference: {fileID: 0}
     - target: {fileID: 20769962301449568, guid: 60a4d1905f857ea4db465f3356c0d706, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 9.482207
+      value: 22.722845
       objectReference: {fileID: 0}
     - target: {fileID: 20769962301449568, guid: 60a4d1905f857ea4db465f3356c0d706, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6266,7 +6300,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1182339004921958389, guid: fea35e635ab4cbf4893444b0e7f59789, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.4822073
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1182339004921958389, guid: fea35e635ab4cbf4893444b0e7f59789, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6323,7 +6357,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3191026292710674285, guid: 00dead322d44cb24faee0edee8036d0f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.4822073
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3191026292710674285, guid: 00dead322d44cb24faee0edee8036d0f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6384,7 +6418,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4790266169856660597, guid: 128b3571e63c75644993e23a3943fe92, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.4822073
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4790266169856660597, guid: 128b3571e63c75644993e23a3943fe92, type: 3}
       propertyPath: m_LocalRotation.w

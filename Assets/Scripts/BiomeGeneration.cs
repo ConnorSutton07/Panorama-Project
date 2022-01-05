@@ -1,16 +1,20 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using System;
 using System.Collections.Generic;
 
-public class TerrainGeneration : MonoBehaviour
+public class BiomeGeneration : MonoBehaviour
 {
     private Tilemap map;
     public Tile[] floorTiles      = new Tile[3];
     public Tile[] transitionTiles = new Tile[2];
+    public GameObject[] landSpecies = new GameObject[4];
+    public GameObject[] waterSpecies = new GameObject[1];
     public Tile waterTile;
     public GameObject[] backgroundLayers;
     public Texture2D sky;
 
+    public float speciesDensity;
     public float backgroundHeight;
     public int floorHeight;
     public float backgroundScale = 1.0f;
@@ -20,8 +24,8 @@ public class TerrainGeneration : MonoBehaviour
     public int padding;
     public int tileWidth;
 
-    #region LandInterval
-    public class LandInterval
+    #region Interval Class
+    public class Interval : IComparable
     {
         private int left;
         private int right;
@@ -36,13 +40,13 @@ public class TerrainGeneration : MonoBehaviour
             get => right;
         }
 
-        public LandInterval(int leftEnd, int rightEnd)
+        public Interval(int leftEnd, int rightEnd)
         {
             left = leftEnd;
             right = rightEnd;
         }
 
-        public bool intersects(LandInterval other, int padding)
+        public bool intersects(Interval other, int padding)
         {
             if (Mathf.Max(right, other.Right) - Mathf.Min(left, other.Left) < (right - left + other.Right - other.Left + padding))
                 return true;
@@ -55,28 +59,37 @@ public class TerrainGeneration : MonoBehaviour
                 return true;
             return false;
         }
+
+        public int CompareTo(object obj)
+        {
+            if (obj == null) return 1;
+            Interval other = obj as Interval;
+            if (other.Left == left) return 0;
+            else if (other.Left > left) return -1;
+            else return 1;
+        }
     }
 
     #endregion
 
-    List<LandInterval> GenerateLand()
+    List<Interval> GenerateLand()
     {
         int totalWidth = Root.RIGHT_EDGE - Root.LEFT_EDGE;
-        int numLandSections = Random.Range(minLand, maxLand+ 1);
-        List<LandInterval> intervals = new List<LandInterval>();
+        int numLandSections = UnityEngine.Random.Range(minLand, maxLand+ 1);
+        List<Interval> landIntervals = new List<Interval>();
 
         for (int i = 0; i < numLandSections; i++)
         {
-            int intervalWidth = Random.Range(2, totalWidth / (tileWidth * numLandSections)) * tileWidth;
+            int intervalWidth = UnityEngine.Random.Range(2, totalWidth / (tileWidth * numLandSections)) * tileWidth;
             bool overlaps = true;
             int attempts = 0;
             while (overlaps && attempts < 5)
             {
                 overlaps = false;
                 attempts += 1;
-                int intervalStart = Random.Range(Root.LEFT_EDGE, Root.RIGHT_EDGE - intervalWidth);
-                LandInterval interval = new LandInterval(intervalStart, intervalStart + intervalWidth);
-                foreach (LandInterval other in intervals)
+                int intervalStart = UnityEngine.Random.Range(Root.LEFT_EDGE, Root.RIGHT_EDGE - intervalWidth);
+                Interval interval = new Interval(intervalStart, intervalStart + intervalWidth);
+                foreach (Interval other in landIntervals)
                 {
                     if (interval.intersects(other, padding * tileWidth))
                     {
@@ -86,17 +99,17 @@ public class TerrainGeneration : MonoBehaviour
                 }
                 if (!overlaps)
                 {
-                    intervals.Add(interval);
+                    landIntervals.Add(interval);
                 }
             }
         }
 
-        return intervals;
+        return landIntervals;
     }
 
-    void PlaceLand(List<LandInterval> intervals)
+    void PlaceLand(List<Interval> intervals)
     {
-        foreach (LandInterval interval in intervals)
+        foreach (Interval interval in intervals)
         {
             map.SetTile(new Vector3Int(interval.Left, floorHeight, 0), transitionTiles[0]);
             map.SetTile(new Vector3Int(interval.Right, floorHeight, 0), transitionTiles[1]);
@@ -121,11 +134,45 @@ public class TerrainGeneration : MonoBehaviour
         }
     }
 
+    List<Interval> GetNegativeIntervals(List<Interval> original)
+    {
+        List<Interval> negatives = new List<Interval>();
+        int leftEnd = Root.RIGHT_EDGE;
+        foreach (Interval interval in original)
+        {
+            int rightEnd = interval.Left - 1;
+            if (rightEnd > leftEnd)
+            {
+                Interval newInterval = new Interval(leftEnd, rightEnd);
+                negatives.Add(newInterval);
+            }
+            leftEnd = interval.Right + 1;
+        }
+        return negatives;
+    }
+
+    void PlaceSpecies(List<Interval> intervals, GameObject[] species)
+    {
+
+    }
+
+    void printIntervals(List<Interval> intervals)
+    {
+        Debug.Log("-----------------");
+        foreach (Interval interval in intervals)
+        {
+            Debug.Log("(" + interval.Left + ", " + interval.Right + ")");
+        }
+        Debug.Log("-----------------");
+    }
+
     void Start()
     {
         map = gameObject.GetComponent<Tilemap>();
-        List<LandInterval> intervals = GenerateLand();
-        PlaceLand(intervals);
+        List<Interval> landIntervals = GenerateLand();
+        landIntervals.Sort();
+        PlaceLand(landIntervals);
+        List<Interval> waterIntervals = GetNegativeIntervals(landIntervals);
         if (generateBackground) GenerateBackground();
     }
 }
