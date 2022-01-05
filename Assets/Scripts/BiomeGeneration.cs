@@ -10,11 +10,14 @@ public class BiomeGeneration : MonoBehaviour
     public Tile[] transitionTiles = new Tile[2];
     public GameObject[] landSpecies = new GameObject[4];
     public GameObject[] waterSpecies = new GameObject[1];
+    public Transform landSpeciesParent;
+    public Transform waterSpeciesParent;
     public Tile waterTile;
     public GameObject[] backgroundLayers;
     public Texture2D sky;
 
-    public float speciesDensity;
+    public float landSpeciesDensity;
+    public float waterSpeciesDensity;
     public float backgroundHeight;
     public int floorHeight;
     public float backgroundScale = 1.0f;
@@ -22,6 +25,8 @@ public class BiomeGeneration : MonoBehaviour
     public int minLand;
     public int maxLand;
     public int padding;
+    public int minIntervalWidth;
+    //public int maxIntervalWidth;
     public int tileWidth;
 
     #region Interval Class
@@ -80,7 +85,7 @@ public class BiomeGeneration : MonoBehaviour
 
         for (int i = 0; i < numLandSections; i++)
         {
-            int intervalWidth = UnityEngine.Random.Range(2, totalWidth / (tileWidth * numLandSections)) * tileWidth;
+            int intervalWidth = UnityEngine.Random.Range(minIntervalWidth, totalWidth / (tileWidth * numLandSections)) * tileWidth;
             bool overlaps = true;
             int attempts = 0;
             while (overlaps && attempts < 5)
@@ -151,9 +156,29 @@ public class BiomeGeneration : MonoBehaviour
         return negatives;
     }
 
-    void PlaceSpecies(List<Interval> intervals, GameObject[] species)
+    void PlaceSpecies(List<Interval> intervals, GameObject[] species, float density, Transform parent)
     {
-
+        foreach (Interval interval in intervals)
+        {
+            for (int i = interval.Left + 2; i < interval.Right - 1; i++)
+            {
+                if (UnityEngine.Random.Range(0f, 1f) < density) // place animal
+                {
+                    Debug.Log("here");
+                    GameObject animal = species[UnityEngine.Random.Range(0, species.Length)];
+                    Debug.Log(animal.name);
+                    float width = animal.GetComponent<SpriteRenderer>().size.x;
+                    float totalWidth = Mathf.Ceil(width);
+                    if (i + totalWidth < interval.Right)
+                    {
+                        Vector3 pos = new Vector3(i + (totalWidth - width) / 2, animal.transform.position.y, parent.transform.position.z);
+                        Instantiate(animal, pos, Quaternion.identity, parent);
+                        Debug.Log("instantiated");
+                        i += (int)totalWidth;
+                    }
+                }
+            }
+        }
     }
 
     void printIntervals(List<Interval> intervals)
@@ -173,6 +198,7 @@ public class BiomeGeneration : MonoBehaviour
         landIntervals.Sort();
         PlaceLand(landIntervals);
         List<Interval> waterIntervals = GetNegativeIntervals(landIntervals);
+        PlaceSpecies(landIntervals, landSpecies, landSpeciesDensity, landSpeciesParent);
         if (generateBackground) GenerateBackground();
     }
 }
