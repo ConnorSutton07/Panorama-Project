@@ -19,7 +19,7 @@ public class Odobenus_rosmarus : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector2(transform.position.x, yPos + (amplitude * Mathf.Sin(t)));
+        transform.position = new Vector3(transform.position.x, yPos + (amplitude * Mathf.Sin(t)), transform.position.z);
         t += speed;
     }
 }

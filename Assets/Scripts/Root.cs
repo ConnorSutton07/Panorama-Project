@@ -18,9 +18,10 @@ public class Root : MonoBehaviour
     //------------
     //    Map 
     //------------
-    public static int LEFT_EDGE = -30;
-    public static int RIGHT_EDGE = 50;
+    public static int LEFT_EDGE = -45;
+    public static int RIGHT_EDGE = 45;
     public static int PRECIPITATION_OFFSET = 8;
+
 
     private void Start()
     {

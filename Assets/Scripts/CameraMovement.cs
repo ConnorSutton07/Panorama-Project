@@ -13,10 +13,7 @@ public class CameraMovement : MonoBehaviour
         Precipitation = GameObject.Find("Precipitation");
         Camera camera = gameObject.GetComponent<Camera>();
         width = camera.aspect * camera.orthographicSize;
-        speed = width / 100;
-        Debug.Log("Screen width: " + Screen.width);
-        Debug.Log("Camera width:" + width);
-
+        speed = width / 50;
     }
 
     void FixedUpdate()
