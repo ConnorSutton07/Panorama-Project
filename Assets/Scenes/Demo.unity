@@ -5614,6 +5614,7 @@ MonoBehaviour:
   - {fileID: 1182339004921958379, guid: fea35e635ab4cbf4893444b0e7f59789, type: 3}
   - {fileID: 4790266169856660592, guid: 128b3571e63c75644993e23a3943fe92, type: 3}
   - {fileID: 3191026292710674286, guid: 00dead322d44cb24faee0edee8036d0f, type: 3}
+  - {fileID: 8829274754136300336, guid: b3ae736440e00fa45817f97dd0cb5fe2, type: 3}
   waterSpecies:
   - {fileID: 2048282648}
   landSpeciesParent: {fileID: 1330530639}
@@ -6504,3 +6505,64 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60a4d1905f857ea4db465f3356c0d706, type: 3}
+--- !u!1001 &8829274754891239378
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8829274754136300336, guid: b3ae736440e00fa45817f97dd0cb5fe2, type: 3}
+      propertyPath: m_Name
+      value: Polar Bear
+      objectReference: {fileID: 0}
+    - target: {fileID: 8829274754136300336, guid: b3ae736440e00fa45817f97dd0cb5fe2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8829274754136300337, guid: b3ae736440e00fa45817f97dd0cb5fe2, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8829274754136300337, guid: b3ae736440e00fa45817f97dd0cb5fe2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8829274754136300337, guid: b3ae736440e00fa45817f97dd0cb5fe2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8829274754136300337, guid: b3ae736440e00fa45817f97dd0cb5fe2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.57356805
+      objectReference: {fileID: 0}
+    - target: {fileID: 8829274754136300337, guid: b3ae736440e00fa45817f97dd0cb5fe2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8829274754136300337, guid: b3ae736440e00fa45817f97dd0cb5fe2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8829274754136300337, guid: b3ae736440e00fa45817f97dd0cb5fe2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8829274754136300337, guid: b3ae736440e00fa45817f97dd0cb5fe2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8829274754136300337, guid: b3ae736440e00fa45817f97dd0cb5fe2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8829274754136300337, guid: b3ae736440e00fa45817f97dd0cb5fe2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8829274754136300337, guid: b3ae736440e00fa45817f97dd0cb5fe2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b3ae736440e00fa45817f97dd0cb5fe2, type: 3}

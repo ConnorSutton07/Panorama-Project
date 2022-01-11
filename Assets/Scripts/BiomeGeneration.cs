@@ -164,21 +164,26 @@ public class BiomeGeneration : MonoBehaviour
             {
                 if (UnityEngine.Random.Range(0f, 1f) < density) // place animal
                 {
-                    Debug.Log("here");
                     GameObject animal = species[UnityEngine.Random.Range(0, species.Length)];
-                    Debug.Log(animal.name);
                     float width = animal.GetComponent<SpriteRenderer>().size.x;
                     float totalWidth = Mathf.Ceil(width);
                     if (i + totalWidth < interval.Right)
                     {
                         Vector3 pos = new Vector3(i + (totalWidth - width) / 2, animal.transform.position.y, parent.transform.position.z);
-                        Instantiate(animal, pos, Quaternion.identity, parent);
-                        Debug.Log("instantiated");
+                        GameObject instance = Instantiate(animal, pos, Quaternion.identity, parent);
+                        RandomizeState(instance);
                         i += (int)totalWidth;
                     }
                 }
             }
         }
+    }
+
+    void RandomizeState(GameObject species)
+    {
+        int direction = (UnityEngine.Random.value < 0.5f) ? -1 : 1;
+        species.transform.localScale = new Vector3(direction, species.transform.localScale.y, species.transform.localScale.z);
+
     }
 
     void printIntervals(List<Interval> intervals)
