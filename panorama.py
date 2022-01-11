@@ -51,11 +51,14 @@ def GetSpecies(lat: float, lon: float, kya: str, clouds: dict, bios: list, names
         clim_data = np.array(list(zip(df['puntos10'].to_numpy(),
                                       df['puntos11'].to_numpy(),
                                       df['puntos12'].to_numpy())))
+        print("Location-data: ")
+        print(loc_data)
 
         loc = np.array([lon, lat])
         idx = NearestPoint(loc, loc_data)
         climate_point = clim_data[idx]
-        print("Closest Point:", loc_data[idx])
+        print("Closest Point:", loc_data[idx][::-1])
+        print("Climate Point:", climate_point)
         for i in range(len(bios)):
             data = np.array(bios[i])
             mahal = Mahalanobis(climate_point, data)
@@ -130,11 +133,12 @@ def main(species_data_file: str = 'ValsCoordsPanoramaAlternas3.csv',
     print("|     Primary Species      |")
     print("+--------------------------+\n")
     print(primary_species)
-    print('\n\n')
+    print('\n')
     print("+--------------------------+")
     print("|    Secondary Species     |")
     print("+--------------------------+\n")
     print(secondary_species)
+    print('\n')
 
 
 if __name__ == "__main__": # starting point, immediately calls main
