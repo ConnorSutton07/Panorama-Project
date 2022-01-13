@@ -5604,9 +5604,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floorTiles:
-  - {fileID: 11400000, guid: 618550827093ac7448d2cc6259387b6b, type: 2}
-  - {fileID: 11400000, guid: 834d8df03c8871447b4b866df314ee03, type: 2}
-  - {fileID: 11400000, guid: 771896a4c24f2dd41a6d8ffb8a4e2ed2, type: 2}
+  - {fileID: 11400000, guid: 0199e0916f11ceb438d21d2c90c68e1b, type: 2}
+  - {fileID: 11400000, guid: 04307f6b339b5e9428f00189a9e13754, type: 2}
+  - {fileID: 11400000, guid: 6694b71b04f21b54a9da5199bc22afd1, type: 2}
   transitionTiles:
   - {fileID: 11400000, guid: bf8657fac9d79ac439d41dfddddde1c0, type: 2}
   - {fileID: 11400000, guid: 22df5cfdababb0645b758342a0bd350a, type: 2}
@@ -6512,13 +6512,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4947261080104001978, guid: b3ae736440e00fa45817f97dd0cb5fe2, type: 3}
+      propertyPath: m_Name
+      value: Mom
+      objectReference: {fileID: 0}
     - target: {fileID: 8829274754136300336, guid: b3ae736440e00fa45817f97dd0cb5fe2, type: 3}
       propertyPath: m_Name
       value: Polar Bear
       objectReference: {fileID: 0}
     - target: {fileID: 8829274754136300336, guid: b3ae736440e00fa45817f97dd0cb5fe2, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8829274754136300337, guid: b3ae736440e00fa45817f97dd0cb5fe2, type: 3}
       propertyPath: m_RootOrder
