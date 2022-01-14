@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
+    [SerializeField] float precipitationOffset;
     float width;
     float speed;
     GameObject Precipitation;
@@ -29,7 +30,7 @@ public class CameraMovement : MonoBehaviour
         {
             float NewX = Mathf.Clamp(transform.position.x - speed, Root.LEFT_EDGE + width, Root.RIGHT_EDGE - width);
             transform.position = new Vector3(NewX, transform.position.y, transform.position.z);
-            Precipitation.transform.position = new Vector3(NewX, Precipitation.transform.position.y, Precipitation.transform.position.z);
+            Precipitation.transform.position = new Vector3(NewX + precipitationOffset, Precipitation.transform.position.y, Precipitation.transform.position.z);
         }
     }
 }

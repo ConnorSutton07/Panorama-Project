@@ -160,16 +160,16 @@ public class BiomeGeneration : MonoBehaviour
     {
         foreach (Interval interval in intervals)
         {
-            for (int i = interval.Left + 2; i < interval.Right - 1; i++)
+            for (int i = interval.Left + tileWidth - 1; i < interval.Right - tileWidth; i++)
             {
                 if (UnityEngine.Random.Range(0f, 1f) < density) // place animal
                 {
                     GameObject animal = species[UnityEngine.Random.Range(0, species.Length)];
                     float width = animal.GetComponent<SpriteRenderer>().size.x;
                     float totalWidth = Mathf.Ceil(width);
-                    if (i + totalWidth < interval.Right)
+                    if (i + totalWidth < interval.Right - tileWidth)
                     {
-                        Vector3 pos = new Vector3(i + (totalWidth - width) / 2, animal.transform.position.y, parent.transform.position.z);
+                        Vector3 pos = new Vector3(i + totalWidth, animal.transform.position.y, parent.transform.position.z);
                         GameObject instance = Instantiate(animal, pos, Quaternion.identity, parent);
                         RandomizeState(instance);
                         i += (int)totalWidth;
@@ -204,6 +204,7 @@ public class BiomeGeneration : MonoBehaviour
         PlaceLand(landIntervals);
         List<Interval> waterIntervals = GetNegativeIntervals(landIntervals);
         PlaceSpecies(landIntervals, landSpecies, landSpeciesDensity, landSpeciesParent);
+        PlaceSpecies(waterIntervals, waterSpecies, waterSpeciesDensity, waterSpeciesParent);
         if (generateBackground) GenerateBackground();
     }
 }
