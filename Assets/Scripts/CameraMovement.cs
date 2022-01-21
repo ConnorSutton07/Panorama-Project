@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
+    [SerializeField] bool allowVertical;
+    [SerializeField] bool includePrecipitation;
     [SerializeField] float precipitationOffset;
     float width;
     float speed;
@@ -19,18 +21,38 @@ public class CameraMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
-        {
-            float NewX = Mathf.Clamp(transform.position.x + speed, Root.LEFT_EDGE + width, Root.RIGHT_EDGE - width);
-            transform.position = new Vector3(NewX, transform.position.y, transform.position.z);
-            Precipitation.transform.position = new Vector3(NewX, Precipitation.transform.position.y, Precipitation.transform.position.z);
-        }
+        float x = transform.position.x;
+        float y = transform.position.y;
 
-        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
-        {
-            float NewX = Mathf.Clamp(transform.position.x - speed, Root.LEFT_EDGE + width, Root.RIGHT_EDGE - width);
-            transform.position = new Vector3(NewX, transform.position.y, transform.position.z);
-            Precipitation.transform.position = new Vector3(NewX + precipitationOffset, Precipitation.transform.position.y, Precipitation.transform.position.z);
-        }
+        if (MoveRight() && ! MoveLeft())
+            x = Mathf.Clamp(transform.position.x + speed, Root.LEFT_EDGE + width, Root.RIGHT_EDGE - width);
+        else if (MoveLeft())
+            x = Mathf.Clamp(transform.position.x - speed, Root.LEFT_EDGE + width, Root.RIGHT_EDGE - width);
+        if (MoveUp() && !MoveDown())
+            y = transform.position.y + speed;
+        else if (MoveDown())
+            y = transform.position.y - speed;
+
+        transform.position = new Vector3(x, y, transform.position.z);
+    }
+
+    bool MoveRight()
+    {
+        return Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D);
+    }
+
+    bool MoveLeft()
+    {
+        return Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A);
+    }
+
+    bool MoveUp()
+    {
+        return Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W);
+    }
+
+    bool MoveDown()
+    {
+        return Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S);
     }
 }
