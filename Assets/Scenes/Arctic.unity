@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 117856553}
   - component: {fileID: 117856552}
   - component: {fileID: 117856551}
+  - component: {fileID: 117856554}
   m_Layer: 0
   m_Name: Precipitation
   m_TagString: Untagged
@@ -4931,6 +4932,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &117856554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117856550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 072a54db5762cf144857ac72908acdbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xOffset: 5
+  cam: {fileID: 519420031}
 --- !u!1 &185111488
 GameObject:
   m_ObjectHideFlags: 0
@@ -5154,7 +5169,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db76f27766596b04d87a02f396788e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  precipitationOffset: 3
+  allowVertical: 0
+  includePrecipitation: 0
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0

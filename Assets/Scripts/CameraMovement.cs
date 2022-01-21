@@ -5,15 +5,11 @@ using UnityEngine;
 public class CameraMovement : MonoBehaviour
 {
     [SerializeField] bool allowVertical;
-    [SerializeField] bool includePrecipitation;
-    [SerializeField] float precipitationOffset;
     float width;
     float speed;
-    GameObject Precipitation;
 
     private void Start()
     {
-        Precipitation = GameObject.Find("Precipitation");
         Camera camera = gameObject.GetComponent<Camera>();
         width = camera.aspect * camera.orthographicSize;
         speed = width / 50;
@@ -21,19 +17,19 @@ public class CameraMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        float x = transform.position.x;
-        float y = transform.position.y;
+        float xMovement = 0;
+        float yMovement = 0;
 
-        if (MoveRight() && ! MoveLeft())
-            x = Mathf.Clamp(transform.position.x + speed, Root.LEFT_EDGE + width, Root.RIGHT_EDGE - width);
-        else if (MoveLeft())
-            x = Mathf.Clamp(transform.position.x - speed, Root.LEFT_EDGE + width, Root.RIGHT_EDGE - width);
-        if (MoveUp() && !MoveDown())
-            y = transform.position.y + speed;
-        else if (MoveDown())
-            y = transform.position.y - speed;
+        if (MoveRight())
+            xMovement += speed;
+        if (MoveLeft())
+            xMovement -= speed;
+        if (MoveUp())
+            yMovement += speed;
+        if (MoveDown())
+            yMovement -= speed;
 
-        transform.position = new Vector3(x, y, transform.position.z);
+        transform.position = new Vector3(transform.position.x + xMovement, transform.position.y + yMovement, transform.position.z);
     }
 
     bool MoveRight()
