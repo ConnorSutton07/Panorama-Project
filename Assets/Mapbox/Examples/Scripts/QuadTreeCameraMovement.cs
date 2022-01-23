@@ -32,9 +32,11 @@
 		private bool _isInitialized = false;
 		private Plane _groundPlane = new Plane(Vector3.up, 0);
 		private bool _dragStartedOnUI = false;
+        private SpawnOnMap spawnScript;
 
 		void Awake()
 		{
+            spawnScript = gameObject.GetComponent<SpawnOnMap>();
 			if (null == _referenceCamera)
 			{
 				_referenceCamera = GetComponent<Camera>();
@@ -48,6 +50,7 @@
 
 		public void Update()
 		{
+            checkMarkerPlacement();
 			if (Input.GetMouseButtonDown(0) && EventSystem.current.IsPointerOverGameObject())
 			{
 				_dragStartedOnUI = true;
@@ -57,7 +60,6 @@
 			{
 				_dragStartedOnUI = false;
 			}
-            UseMeterConversion();
 		}
 
 
@@ -77,6 +79,18 @@
 				}
 			}
 		}
+
+        void checkMarkerPlacement()
+        {
+            if (Input.GetMouseButtonUp(1))
+            {
+                var mousePosScreen = Input.mousePosition;
+                mousePosScreen.z = _referenceCamera.transform.localPosition.y;
+                var pos = _referenceCamera.ScreenToWorldPoint(mousePosScreen);
+                var latlongDelta = _mapManager.WorldToGeoPosition(pos);
+                spawnScript.Spawn(latlongDelta);
+            }
+        }
 
 		void HandleMouseAndKeyBoard()
 		{

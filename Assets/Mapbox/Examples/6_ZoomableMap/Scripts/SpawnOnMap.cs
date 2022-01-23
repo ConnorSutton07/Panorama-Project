@@ -9,47 +9,31 @@
 
 	public class SpawnOnMap : MonoBehaviour
 	{
-		[SerializeField]
-		AbstractMap _map;
+		[SerializeField] AbstractMap _map;
 
-		[SerializeField]
-		[Geocode]
-		string[] _locationStrings;
-		Vector2d[] _locations;
+		Vector2d location;
+        bool spawned = false;
+		[SerializeField] float _spawnScale = 100f;
 
-		[SerializeField]
-		float _spawnScale = 100f;
+		[SerializeField] GameObject markerPrefab;
+        GameObject markerInstance;
 
-		[SerializeField]
-		GameObject _markerPrefab;
-
-		List<GameObject> _spawnedObjects;
-
-		void Start()
+		public void Spawn(Vector2d newLocation)
 		{
-			_locations = new Vector2d[_locationStrings.Length];
-			_spawnedObjects = new List<GameObject>();
-			for (int i = 0; i < _locationStrings.Length; i++)
-			{
-				var locationString = _locationStrings[i];
-				_locations[i] = Conversions.StringToLatLon(locationString);
-				var instance = Instantiate(_markerPrefab);
-				instance.transform.localPosition = _map.GeoToWorldPosition(_locations[i], true);
-				instance.transform.localScale = new Vector3(_spawnScale, _spawnScale, _spawnScale);
-				_spawnedObjects.Add(instance);
-			}
+            Destroy(markerInstance);
+            Debug.Log("Spawning");
+            location = newLocation;
+            markerInstance = Instantiate(markerPrefab);
+            spawned = true;
 		}
 
 		private void Update()
 		{
-			int count = _spawnedObjects.Count;
-			for (int i = 0; i < count; i++)
-			{
-				var spawnedObject = _spawnedObjects[i];
-				var location = _locations[i];
-				spawnedObject.transform.localPosition = _map.GeoToWorldPosition(location, true);
-				spawnedObject.transform.localScale = new Vector3(_spawnScale, _spawnScale, _spawnScale);
-			}
+            if (spawned)
+            {
+                markerInstance.transform.localPosition = _map.GeoToWorldPosition(location, true);
+                markerInstance.transform.localScale = new Vector3(_spawnScale, _spawnScale, _spawnScale);
+            }
 		}
 	}
 }

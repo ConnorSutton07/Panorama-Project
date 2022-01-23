@@ -436,7 +436,7 @@ MonoBehaviour:
           Modified: 
           UserName: 
       rasterOptions:
-        useRetina: 1
+        useRetina: 0
         useCompression: 1
         useMipMap: 1
   _terrain:
@@ -449,7 +449,7 @@ MonoBehaviour:
           Id: mapbox.terrain-rgb
           Modified: 
           UserName: 
-      elevationLayerType: 1
+      elevationLayerType: 0
       requiredOptions:
         exaggerationFactor: 1
       colliderOptions:
@@ -492,9 +492,9 @@ MonoBehaviour:
         - water_label
         - waterway
         - waterway_label
-      _sourceType: 1
+      _sourceType: 3
       sourceOptions:
-        isActive: 1
+        isActive: 0
         layerSource:
           Name: Mapbox Streets
           Id: mapbox.mapbox-streets-v7
@@ -541,7 +541,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _panSpeed: 2.19
-  _zoomSpeed: 0.99
+  _zoomSpeed: 0.22
   _referenceCamera: {fileID: 1787361574}
   _mapManager: {fileID: 555018383}
   _useDegreeMethod: 0
@@ -558,13 +558,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _map: {fileID: 555018383}
-  _locationStrings:
-  - 37.7648, -122.463
-  - 37.8045, -122.2714
-  - 37.859, -122.4855
-  - 35.658611111111, 139.74555555556
   _spawnScale: 10
-  _markerPrefab: {fileID: 1839187062704024, guid: 9b5b1b761a8994c07affd0a05396633b, type: 3}
+  markerPrefab: {fileID: 1839187062704024, guid: 9b5b1b761a8994c07affd0a05396633b, type: 3}
 --- !u!1001 &1178802930
 PrefabInstance:
   m_ObjectHideFlags: 0
