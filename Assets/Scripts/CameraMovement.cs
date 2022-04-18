@@ -5,6 +5,8 @@ using UnityEngine;
 public class CameraMovement : MonoBehaviour
 {
     [SerializeField] bool allowVertical;
+    [SerializeField] float leftEnd;
+    [SerializeField] float rightEnd;
     float width;
     float speed;
 
@@ -29,7 +31,8 @@ public class CameraMovement : MonoBehaviour
         if (MoveDown())
             yMovement -= speed;
 
-        transform.position = new Vector3(transform.position.x + xMovement, transform.position.y + yMovement, transform.position.z);
+        float xPos = Mathf.Clamp(transform.position.x + xMovement, leftEnd + width, rightEnd - width); 
+        transform.position = new Vector3(xPos, transform.position.y + yMovement, transform.position.z);
     }
 
     bool MoveRight()
@@ -44,11 +47,11 @@ public class CameraMovement : MonoBehaviour
 
     bool MoveUp()
     {
-        return Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W);
+        return allowVertical && (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W));
     }
 
     bool MoveDown()
     {
-        return Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S);
+        return allowVertical && (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S));
     }
 }
