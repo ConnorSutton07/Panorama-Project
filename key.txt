@@ -1,0 +1,8 @@
+Arctic Coast:             0
+Arctic Tundra:            1
+Boreal Forest:            2
+Eastern Decidious Forest: 3
+Prairie:                  4
+Rocky Mountains:          5
+Sonoran Desert: 	      6
+Tropical Rainforest:      7
