@@ -1,5 +1,8 @@
 # Connor Sutton | 6/18/21 | panorama.py
 
+from typing import List
+from collections import defaultdict
+import json
 import pandas as pd # pandas is for reading csv files
 import numpy as np  # numpy is an essential scientific programming library
 from scipy.stats import chi2
@@ -71,6 +74,23 @@ def GetSpecies(lat: float, lon: float, kya: str, clouds: dict, bios: list, names
         print("Invalid Input")
         pass
 
+def GuessBiome(species: List[str]) -> str:
+    with open('biomes.json', 'r') as f: biomes = json.load(f)
+    biome_counts = dict()
+    for s in species:
+        print(s)
+        d = biomes[s]
+        print(d)
+        for b in d: 
+            if b not in biome_counts: biome_counts[b] = 0
+            biome_counts[b] += 1
+        print()
+    biome_counts[0] *= 2
+    print(biome_counts)
+    return " "
+    
+
+
 def main(species_data_file: str = 'ValsCoordsPanoramaAlternas3.csv', 
          times_data_folder: str =  'HexagonsCoordsVars/') -> None:
 
@@ -129,6 +149,7 @@ def main(species_data_file: str = 'ValsCoordsPanoramaAlternas3.csv',
     kya = input("Kya: ")
 
     primary_species, secondary_species = GetSpecies(lat, lon, kya, clouds, bios, names) 
+    biome = GuessBiome(primary_species + secondary_species)
     print("+--------------------------+")
     print("|     Primary Species      |")
     print("+--------------------------+\n")
@@ -139,6 +160,7 @@ def main(species_data_file: str = 'ValsCoordsPanoramaAlternas3.csv',
     print("+--------------------------+\n")
     print(secondary_species)
     print('\n')
+    print(f"Biome: {biome}")
 
 
 if __name__ == "__main__": # starting point, immediately calls main
